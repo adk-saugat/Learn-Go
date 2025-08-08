@@ -23,8 +23,32 @@ func main(){
 		var depositAmount float64
 		fmt.Scan(&depositAmount)
 
-		balanceAmount += depositAmount
+		if depositAmount <= 0 {
+			fmt.Println("Invalid Amount! Amout must be greater than 0.")
+			return
+		}
 
+		balanceAmount += depositAmount
 		fmt.Printf("\nBalance updated! New Amount: $%v\n", balanceAmount)
+	}else if choice == 3{
+		fmt.Printf("\nYour withdrawl amount: ")
+		var withdrawlAmount float64
+		fmt.Scan(&withdrawlAmount)
+
+		if withdrawlAmount <= 0 {
+			fmt.Println("Invalid Amount! Amout must be greater than 0.")
+			return
+		}
+
+		if withdrawlAmount > balanceAmount {
+			fmt.Println("You cannot withdraw more than what you have.")
+			return
+		}
+			
+
+		balanceAmount -= withdrawlAmount
+		fmt.Printf("\nBalance updated! New Amount: $%v\n", balanceAmount)
+	}else{
+
 	}
 }
