@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main(){
 	var balanceAmount float64 = 1000
@@ -17,10 +19,11 @@ func main(){
 	
 		var choice int
 		fmt.Scan(&choice)
-	
-		if choice == 1{
+
+		switch choice {
+		case 1:
 			fmt.Printf("\nYour balance is $%v.", balanceAmount)
-		}else if choice == 2{
+		case 2:
 			fmt.Printf("\nYour deposit amount: ")
 			var depositAmount float64
 			fmt.Scan(&depositAmount)
@@ -32,7 +35,7 @@ func main(){
 	
 			balanceAmount += depositAmount
 			fmt.Printf("\nBalance updated! New Amount: $%v\n", balanceAmount)
-		}else if choice == 3{
+		case 3:
 			fmt.Printf("\nYour withdrawl amount: ")
 			var withdrawlAmount float64
 			fmt.Scan(&withdrawlAmount)
@@ -50,11 +53,11 @@ func main(){
 	
 			balanceAmount -= withdrawlAmount
 			fmt.Printf("\nBalance updated! New Amount: $%v\n", balanceAmount)
-		}else{
+		default:
 			fmt.Println("Goodbye!")
-			break
+			fmt.Println("Thanks for choosing our bank!")
+			return
 		}
 	}
-	fmt.Println("Thanks for choosing our bank!")
 	
 }
