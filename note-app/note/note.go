@@ -28,10 +28,6 @@ func New(title, content string) (Note, error){
 	}, nil
 }
 
-func (note Note) Display(){
-	fmt.Printf("\nNote title: %v\nNote content: %v\n", note.Title, note.Content)
-}
-
 func (note Note) Save() error{
 	fileName := strings.ReplaceAll(note.Title, " ", "_")
 	fileName = strings.ToLower(fileName) + ".json"
@@ -41,4 +37,8 @@ func (note Note) Save() error{
 		return err
 	}
 	return os.WriteFile(fileName, json, 0644)
+}
+
+func (note Note) Display(){
+	fmt.Printf("\nNote title: %v\nNote content: %v\n", note.Title, note.Content)
 }
